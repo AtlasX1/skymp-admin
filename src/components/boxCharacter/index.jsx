@@ -19,7 +19,7 @@ const BoxCharacter = (data) => {
         <span>baseContainerAdded</span>: {`${data.baseContainerAdded}`}{" "}
       </div>
       <div>
-        <span>dynamicFields</span>: нету{" "}
+        <span>dynamicFields</span>: {data.dynamicFields}{" "}
       </div>
       <div>
         <span>inventory</span> :{" "}
