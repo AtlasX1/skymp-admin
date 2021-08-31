@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/skymp-admin/static/css/main.4ecfd4de.chunk.css",
-    "main.js": "/skymp-admin/static/js/main.fa07f4bc.chunk.js",
-    "main.js.map": "/skymp-admin/static/js/main.fa07f4bc.chunk.js.map",
+    "main.js": "/skymp-admin/static/js/main.924c7aef.chunk.js",
+    "main.js.map": "/skymp-admin/static/js/main.924c7aef.chunk.js.map",
     "runtime-main.js": "/skymp-admin/static/js/runtime-main.57ffcccd.js",
     "runtime-main.js.map": "/skymp-admin/static/js/runtime-main.57ffcccd.js.map",
     "static/js/2.991ecbfa.chunk.js": "/skymp-admin/static/js/2.991ecbfa.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.57ffcccd.js",
     "static/js/2.991ecbfa.chunk.js",
     "static/css/main.4ecfd4de.chunk.css",
-    "static/js/main.fa07f4bc.chunk.js"
+    "static/js/main.924c7aef.chunk.js"
   ]
 }
