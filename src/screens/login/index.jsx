@@ -43,6 +43,7 @@ const Login = ({ setUser, setCurrentScreen }) => {
   return (
     <div className={css.loginContent}>
       <div className={css.loginContent_servers}>
+        <div style={{ color: "white" }}>Выберите сервер авторизации </div>
         {serversAuth.map((url, i) => (
           <RadioButton
             key={i}
