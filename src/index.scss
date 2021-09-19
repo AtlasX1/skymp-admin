@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  border-radius: 25px;
+  div{
+    box-sizing: border-box;
+  }
+}
+button {
+  -webkit-app-region: no-drag;
+}
+
+.no-drag {
+  -webkit-app-region: no-drag;
+}
+html {
+  border-radius: 25px;
+}

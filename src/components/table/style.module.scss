@@ -1,0 +1,29 @@
+.table {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  width: 100%;
+  -webkit-app-region: no-drag;
+  cursor: pointer;
+
+  & &_row {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    color: white;
+    height: 30px;
+    width: 100%;
+  
+    &_ip {
+      width: 30%;
+      margin-right: 10px;
+    }
+    &_name {
+      width: 30%;
+    }
+  }
+}
+.selected{
+  background-color: grey;
+}

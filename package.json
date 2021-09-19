@@ -1,0 +1,91 @@
+{
+  "name": "launcher",
+  "description": "CRA + Electron sitting in a tree",
+  "author": "Kitze",
+  "version": "0.2.7",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.21.4",
+    "cross-env": "6.0.2",
+    "electron-devtools-installer": "^3.2.0",
+    "electron-is-dev": "1.1.0",
+    "electron-log": "^3.0.8",
+    "fs": "^0.0.1-security",
+    "gh-pages": "^3.2.3",
+    "node-sass": "4.14.1",
+    "path": "^0.12.7",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "systemjs": "^6.10.3",
+    "update-electron-app": "^1.2.0",
+    "url": "^0.11.0"
+  },
+  "devDependencies": {
+    "concurrently": "4.1.2",
+    "electron": "6.0.11",
+    "electron-builder": "^21.2.0",
+    "prettier": "^1.4.4",
+    "react-scripts": "3.1.2",
+    "wait-on": "3.3.0"
+  },
+  "build": {
+    "appId": "com.trinityinfosystem.electron.exchange.stream",
+    "productName": "Launcher RedHouse",
+    "copyright": "Copyright © 2018 Trinity InfoSystem",
+    "win": {
+      "publisherName": "Trinity InfoSystem",
+      "publish": [
+        "github"
+      ],
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "assets/icon.ico",
+      "installerSidebar": "assets/sidebar.bmp",
+      "uninstallerSidebar": "assets/sidebar.bmp",
+      "license": "assets/agreement.html",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "atlas",
+        "repo": "accurate",
+        "vPrefixedTagName": true,
+        "private": true,
+        "releaseType": "draft"
+      }
+    ]
+  },
+  "main": "public/electron.js",
+  "homepage": "./",
+  "scripts": {
+    "react-start": "react-scripts start",
+    "react-build": "react-scripts build",
+    "react-test": "react-scripts test --env=jsdom",
+    "react-eject": "react-scripts eject",
+    "electron-build": "electron-builder",
+    "release": "yarn react-build && electron-builder --publish=always",
+    "build": "yarn react-build && yarn electron-build",
+    "start": "concurrently \"cross-env BROWSER=none yarn react-start\" \"wait-on http://localhost:3000 && electron .\"",
+    "deploy": "gh-pages -d build"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

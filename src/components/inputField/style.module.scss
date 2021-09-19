@@ -1,0 +1,16 @@
+.input {
+  height: 46px;
+  background: #2d2d2d;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  width: 100%;
+  margin: 10px 0px;
+  -webkit-app-region: no-drag;
+  padding: 0px 10px;
+  color: white;
+  box-sizing: border-box;
+}
+::-webkit-input-placeholder {
+  text-align: center;
+}

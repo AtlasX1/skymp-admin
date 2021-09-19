@@ -1,0 +1,19 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 46px;
+  width: 100%;
+  border-radius: 10px;
+  -webkit-app-region: no-drag;
+  cursor: pointer;
+  margin: 10px 0px;
+  &_white {
+    border: 2px solid white;
+    color: #ffffff;
+    &:hover {
+      background-color: white;
+      color: #171717;
+    }
+  }
+}
