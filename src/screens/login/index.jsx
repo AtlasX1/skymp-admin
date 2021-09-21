@@ -3,6 +3,7 @@ import css from "./style.module.scss";
 import { InputField, Button, RadioButton } from "../../components";
 import { authApi } from "../../api";
 import { storage } from "../../utils";
+import download from "../../api/filesystem";
 
 const serversAuth = [
   "https://skymp-auth.herokuapp.com/api/",
@@ -77,6 +78,15 @@ const Login = ({ setUser, setCurrentScreen }) => {
           name="Регистрация"
           onClick={() => setCurrentScreen("Registration")}
         />
+        {/* <Button
+          name="Test"
+          onClick={() =>
+            download(
+              () => console.log("start"),
+              () => console.log("end")
+            )
+          }
+        /> */}
       </div>
     </div>
   );
