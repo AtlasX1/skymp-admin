@@ -3,7 +3,10 @@ import css from "./style.module.scss";
 import { InputField, Button, RadioButton } from "../../components";
 import { authApi } from "../../api";
 import { storage } from "../../utils";
-import download from "../../api/filesystem";
+import {
+  NotificationContainer,
+  NotificationManager,
+} from "react-notifications";
 
 const serversAuth = [
   "https://skymp-auth.herokuapp.com/api/",
@@ -88,6 +91,7 @@ const Login = ({ setUser, setCurrentScreen }) => {
           }
         /> */}
       </div>
+      <NotificationContainer />
     </div>
   );
 };

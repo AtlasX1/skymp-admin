@@ -17,6 +17,7 @@
     "path": "^0.12.7",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-notifications": "^1.7.2",
     "url": "^0.11.0"
   },
   "devDependencies": {

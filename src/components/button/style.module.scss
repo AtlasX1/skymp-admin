@@ -7,6 +7,7 @@
   border-radius: 10px;
   -webkit-app-region: no-drag;
   cursor: pointer;
+  user-select: none;
   margin: 10px 0px;
   &_white {
     border: 2px solid white;

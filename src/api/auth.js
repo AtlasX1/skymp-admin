@@ -1,14 +1,15 @@
 import axios from "axios";
 import { storage } from "../utils";
+import {
+  NotificationContainer,
+  NotificationManager,
+} from "react-notifications";
 
 const login = async (email, password) => {
   const url = storage.get("authUrl");
   return await axios
     .post(`${url}users/login`, { email, password })
-    .then((res) => {
-      alert("Ok!");
-      return res.data;
-    })
+    .then((res) => res.data)
     .catch((e) => alert(e));
 };
 

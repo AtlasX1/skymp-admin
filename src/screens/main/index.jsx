@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from "react";
+import {
+  NotificationContainer,
+  NotificationManager,
+} from "react-notifications";
 import { serversApi, authApi } from "../../api";
 import { storage } from "../../utils";
 import { Table, Button, InputField } from "../../components";
@@ -18,7 +22,6 @@ const Main = ({}) => {
       session: "",
     },
   });
-
   const [gamePath, setGamePath] = useState(storage.get("gamePath") ?? "");
 
   useEffect(() => {
@@ -73,12 +76,16 @@ const Main = ({}) => {
             console.log(err)
           );
         }
+        if (!chosenServer["server-ip"]) {
+          NotificationManager.warning("Выбери сервер.");
+        }
+
         user?.id && chosenServer["server-ip"] && runGame();
       } catch (e) {
         alert(e);
       }
     } else {
-      alert("Надо gamePath");
+      NotificationManager.warning("Надо путь игры");
     }
   };
   return (
@@ -107,11 +114,12 @@ const Main = ({}) => {
             name={"Обновить"}
             onClick={() => {
               serversApi.getServers().then(setServersData);
-              alert("Обновлено.");
+              NotificationManager.success("Обновлено");
             }}
           />
         </div>
       </div>
+      <NotificationContainer />
     </div>
   );
 };
