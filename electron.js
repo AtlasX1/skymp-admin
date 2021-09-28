@@ -16,6 +16,7 @@ function createWindow() {
     transparent: true,
     resizable: false,
     frame: false,
+    maximizable:false,
   });
   mainWindow.removeMenu();
   mainWindow.loadURL(
@@ -24,6 +25,7 @@ function createWindow() {
   mainWindow.webContents.openDevTools();
   mainWindow.on("closed", () => (mainWindow = null));
   mainWindow.setResizable(false);
+  
 }
 
 app.on("ready", createWindow);
