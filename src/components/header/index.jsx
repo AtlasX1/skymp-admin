@@ -5,11 +5,12 @@ const Header = ({
   Left = () => <div></div>,
   Center = () => <div></div>,
   Right = () => <div></div>,
+  backgroundColor = "none",
 }) => {
   const closeApp = () => app.exit();
   const hideApp = () => {};
   return (
-    <div className={css.header}>
+    <div className={css.header} style={{ backgroundColor: backgroundColor }}>
       <Left />
       <Center />
       <div className={css.header_right}>

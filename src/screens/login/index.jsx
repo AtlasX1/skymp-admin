@@ -16,9 +16,11 @@ const Login = () => {
       accountActions.asyncActions.login({ email, password, isSaveAccount })
     )
   );
+  
   const changeScreen = useCallback((screen) =>
     dispatch(screenActions.changeScreen(screen))
   );
+
   useEffect(
     () => storage.set("https://skymp-auth.herokuapp.com/api/", "authUrl"),
     []

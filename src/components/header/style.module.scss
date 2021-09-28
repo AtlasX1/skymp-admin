@@ -4,7 +4,7 @@
   justify-content: space-between;
   align-items: center;
   height: 68px;
-  -webkit-app-region: no-drag;
+  -webkit-app-region: drag;
   padding: 0px 20px;
   &_back {
     display: flex;
@@ -21,10 +21,12 @@
       color: white;
     }
   }
-  &_right{
+  &_right {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    height: 100%;
     &_close {
       cursor: pointer;
       width: 30px;
@@ -44,5 +46,4 @@
       }
     }
   }
- 
 }

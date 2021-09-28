@@ -1,12 +1,43 @@
-.main{
+.main {
   padding: 20px;
-
+  height: calc(100% - 68px);
 }
-.buttons{
+.buttons {
   display: flex;
   flex-direction: row;
 
-  div{
+  div {
     width: 100%;
+  }
+}
+
+.logoLittle {
+  width: 60px;
+  height: 34px;
+  background: url("../../assets/png/logoSkyrimLittle.png");
+  -webkit-app-region: drag;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+
+  &_tab {
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #8c8c8c;
+
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+    &_selected {
+      color: white;
+      border-bottom: 2px solid white;
+    }
   }
 }
