@@ -136,7 +136,7 @@ const Main = () => {
         Center={() => <div className={css.logoLittle} />}
         Right={() => (
           <UserBlock
-            name={user.name}
+            name={user?.name}
             showMenu={showMenu}
             setShowMenu={setShowMenu}
             logout={logout}
