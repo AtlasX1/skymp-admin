@@ -17,4 +17,33 @@
     justify-content: center;
     align-items: center;
   }
+  &_welcome {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &_logo {
+      width: 168px;
+      height: 102px;
+      background: url("../../assets/png/logoSkyrim.png");
+      margin-bottom: 25px;
+    }
+    &_text {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      &_value {
+        font-weight: bold;
+        color: white;
+        margin: 0px 30px;
+      }
+      &_line {
+        height: 2px;
+        width: 132px;
+        background-color: white;
+      }
+    }
+  }
 }

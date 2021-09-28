@@ -4,16 +4,18 @@ const InputField = ({
   placeholder = "placeholder",
   value,
   setValue,
-  isLabel = false,
+  label = "",
+  type = "text",
 }) => {
   return (
     <>
-      {isLabel && <div style={{color:'white'}}>{placeholder}</div>}
+      {!!label && <div style={{ color: "white" }}>{label}</div>}
       <input
         value={value}
         onChange={(e) => setValue(e.target.value)}
         className={css.input}
         placeholder={placeholder}
+        type={type}
       ></input>
     </>
   );

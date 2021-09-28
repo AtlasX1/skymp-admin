@@ -5,7 +5,7 @@ import {
 } from "react-notifications";
 import { serversApi, authApi } from "../../api";
 import { storage } from "../../utils";
-import { Table, Button, InputField } from "../../components";
+import { Table, Button, InputField, Header } from "../../components";
 import css from "./style.module.scss";
 const fs = window.require("fs");
 const { shell } = window.require("electron").remote;
@@ -89,7 +89,10 @@ const Main = ({}) => {
     }
   };
   return (
-    <div className={css.main}>
+
+    <>
+      <Header/>
+      <div className={css.main}>
       <Table
         servers={serversData}
         chosenServer={chosenServer}
@@ -121,6 +124,8 @@ const Main = ({}) => {
       </div>
       <NotificationContainer />
     </div>
+    </>
+
   );
 };
 

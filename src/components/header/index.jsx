@@ -1,30 +1,22 @@
 import React from "react";
 import css from "./style.module.scss";
-
-const Header = ({ closeApp, hideApp, showPanel = false, user, logout }) => {
+const { app } = window.require("electron").remote;
+const Header = ({
+  Left = () => <div></div>,
+  Center = () => <div></div>,
+  Right = () => <div></div>,
+}) => {
+  const closeApp = () => app.exit();
+  const hideApp = () => {};
   return (
     <div className={css.header}>
-      <div
-        className={`no-drag ${css.header_close}`}
-        onClick={() => closeApp()}
-      ></div>
-      <div
-        className={`no-drag ${css.header_hide}`}
-        onClick={() => hideApp()}
-      ></div>
-      <div
-        onClick={() => logout()}
-        className="no-drag"
-        style={{
-          color: "white",
-          marginRight: "40px",
-          userSelect: "none",
-          cursor: "pointer",
-        }}
-      >
-        Выйти
+      <Left />
+      <Center />
+      <div className={css.header_right}>
+        <Right />
+        <div className={css.header_right_hide} onClick={() => hideApp()} />
+        <div className={css.header_right_close} onClick={() => closeApp()} />
       </div>
-      <div style={{ color: "white", marginRight: "30px" }}>{user?.name}</div>
     </div>
   );
 };

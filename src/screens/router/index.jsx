@@ -1,45 +1,39 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState, useCallback, Component } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { screenActions } from "../../redux";
 import { Header } from "../../components";
 import { Preloader, Login, Registration, Main } from "../";
-import { storage } from "../../utils";
 import css from "./style.module.scss";
 const { app } = window.require("electron").remote;
-const Router = (params) => {
-  const [currentScreen, setCurrentScreen] = useState("Login");
-  const [user, setUser] = useState(null);
-  const getUser = useCallback(() => storage.get("connection"), []);
-  const logout = () => {
-    storage.set(null, "connection");
-    setUser(null);
-    setCurrentScreen("Login");
-  };
-  const closeApp = () => app.exit();
-  const hideApp = () => {};
+
+const routers = {
+  Preloader: Preloader,
+  Login: Login,
+  Registration: Registration,
+  Main: Main,
+};
+
+function ScreenWrapper({ component: Component }, ...rest) {
+  return Component ? <Component {...rest} /> : <></>;
+}
+
+const Router = () => {
+  const { user, loading } = useSelector((state) => state.accountReducer);
+  const { screen } = useSelector((state) => state.screenReducer);
+  const dispatch = useDispatch();
+  const changeScreen = useCallback((screen) =>
+    dispatch(screenActions.changeScreen(screen))
+  );
 
   useEffect(() => {
-    const storage_user = getUser();
-    setUser(storage_user);
-    if (storage_user) {
-      setCurrentScreen("Main");
-    }
-  }, []);
+    user && changeScreen("Main");
+    !user && changeScreen("Login");
+  }, [user]);
   return (
     <div className={css.app}>
-      <Header
-        closeApp={closeApp}
-        hideApp={hideApp}
-        user={user}
-        logout={logout}
+      <ScreenWrapper
+        component={routers[loading === "pending" ? "Preloader" : screen]}
       />
-      {/* {!currentScreen && <Preloader />} */}
-      {!user && currentScreen === "Login" && (
-        <Login setCurrentScreen={setCurrentScreen} setUser={setUser} />
-      )}
-
-      {currentScreen === "Registration" && (
-        <Registration setCurrentScreen={setCurrentScreen} />
-      )}
-      {!!user && <Main setCurrentScreen={setCurrentScreen} />}
     </div>
   );
 };
