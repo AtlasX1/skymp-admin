@@ -7,7 +7,7 @@ export const login = createAsyncThunk(
     try {
       const user = await authApi.login(payload.email, payload.password);
       if (payload.isSaveAccount) {
-        storage.set(user, "connection");
+        storage.set(user, "newConnection");
       }
       return user;
     } catch (err) {
@@ -17,7 +17,7 @@ export const login = createAsyncThunk(
 );
 
 const initialState = {
-  user: storage.get("connection") ?? null,
+  user: storage.get("newConnection") ?? null,
   loading: "",
   error: "",
 };
@@ -26,8 +26,11 @@ const accountSlice = createSlice({
   name: "accountReducer",
   initialState,
   reducers: {
-    logout: (state, action) => {
+    logoutOld: (state, action) => {
       storage.set(null, "connection");
+    },
+    logout: (state, action) => {
+      storage.set(null, "newConnection");
       state.user = null;
     },
   },
