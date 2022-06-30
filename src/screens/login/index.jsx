@@ -30,7 +30,7 @@ const Login = () => {
 
   useEffect(() => {
     logOut();
-    storage.set("https://skymp-auth.herokuapp.com/api/", "authUrl");
+    storage.set("http://92.38.222.103:3000//api/", "authUrl");
   }, []);
   return (
     <>
